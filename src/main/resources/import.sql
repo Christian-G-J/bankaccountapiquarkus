@@ -1,0 +1,9 @@
+INSERT INTO accounts (accountNumber, balance, firstName, lastName) VALUES ('100001', 1200.00, 'Mads', 'Jensen');
+INSERT INTO accounts (accountNumber, balance, firstName, lastName) VALUES ('100002', 1500.00, 'Freja', 'Nielsen');
+INSERT INTO accounts (accountNumber, balance, firstName, lastName) VALUES ('100003', 1800.00, 'Lars', 'Hansen');
+INSERT INTO accounts (accountNumber, balance, firstName, lastName) VALUES ('100004', 2000.00, 'Sofie', 'Petersen');
+INSERT INTO accounts (accountNumber, balance, firstName, lastName) VALUES ('100005', 2200.00, 'Anders', 'Larsen');
+INSERT INTO accounts (accountNumber, balance, firstName, lastName) VALUES ('100006', 2500.00, 'Kirsten', 'Pedersen');
+INSERT INTO accounts (accountNumber, balance, firstName, lastName) VALUES ('100007', 2800.00, 'Jesper', 'Rasmussen');
+INSERT INTO accounts (accountNumber, balance, firstName, lastName) VALUES ('100008', 3000.00, 'Mette', 'Christensen');
+INSERT INTO accounts (accountNumber, balance, firstName, lastName) VALUES ('100009', 3200.00, 'Nikolaj', 'Thomsen');
