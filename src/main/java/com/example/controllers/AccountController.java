@@ -1,4 +1,4 @@
-package com.example;
+package com.example.controllers;
 
 import com.example.exceptions.AccountException;
 import com.example.models.Account;
