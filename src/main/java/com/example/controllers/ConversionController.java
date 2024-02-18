@@ -1,4 +1,4 @@
-package com.example;
+package com.example.controllers;
 
 import com.example.models.ExchangeRateResponseDTO;
 import com.example.service.ExchangeRateService;
