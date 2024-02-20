@@ -14,7 +14,28 @@ public class ExchangeRateResponseDTO {
     @JsonProperty("conversion_result")
     private BigDecimal conversionResult;
 
-    // Getters and Setters
+    @JsonProperty("base_code")
+    private String base;
+
+    @JsonProperty("target_code")
+    private String target;
+
+    public String getBase() {
+        return base;
+    }
+
+    public void setBase(String base) {
+        this.base = base;
+    }
+
+    public String getTarget() {
+        return target;
+    }
+
+    public void setTarget(String target) {
+        this.target = target;
+    }
+// Getters and Setters
 
     public BigDecimal getConversionRate() {
         return conversionRate;
