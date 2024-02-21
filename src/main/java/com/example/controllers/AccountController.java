@@ -27,38 +27,23 @@ public class AccountController {
     @Path("/{accountNumber}/balance")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getBalance(@PathParam("accountNumber") String accountNumber) {
-        try {
-            BigDecimal balance = accountService.findBalanceById(accountNumber);
-            return Response.ok("Balance of " + accountNumber + " is = " + balance).build();
-        } catch (AccountException e) {
-            return Response.status(Response.Status.NOT_FOUND)
-                    .entity(e.getMessage()).type(MediaType.TEXT_PLAIN).build();
-        }
+        BigDecimal balance = accountService.findBalanceById(accountNumber);
+        return Response.ok("Balance of " + accountNumber + " is = " + balance).build();
     }
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createAccount(@Valid Account account) {
-        try {
-            Account createdAccount = accountService.createAccount(account);
-            return Response.status(Response.Status.CREATED).entity(createdAccount).build();
-        } catch (AccountException e) {
-            return Response.status(Response.Status.BAD_REQUEST)
-                    .entity(e.getMessage()).build();
-        }
+        Account createdAccount = accountService.createAccount(account);
+        return Response.status(Response.Status.CREATED).entity(createdAccount).build();
     }
 
     @POST
     @Path("{accountNumber}/deposit")
     public Response deposit(@PathParam("accountNumber") String accountNumber,
                             @QueryParam("amount") @Positive BigDecimal amount) {
-        try {
-            BigDecimal newBalance = accountService.deposit(accountNumber, amount);
-            return Response.ok("New balance: " + newBalance).build();
-        } catch (AccountException e) {
-            return Response.status(Response.Status.BAD_REQUEST)
-                    .entity(e.getMessage()).build();
-        }
+        BigDecimal newBalance = accountService.deposit(accountNumber, amount);
+        return Response.ok("New balance: " + newBalance).build();
     }
 }
