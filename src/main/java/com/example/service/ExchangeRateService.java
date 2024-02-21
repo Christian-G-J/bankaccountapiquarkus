@@ -1,24 +1,26 @@
 package com.example.service;
 
+import com.example.clients.ExchangeRateClient;
 import com.example.models.ExchangeRateResponseDTO;
+
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.ws.rs.*;
-import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
-import jakarta.ws.rs.core.MediaType;
+import jakarta.inject.Inject;
+import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import java.math.BigDecimal;
 
-@RegisterRestClient(configKey="exchange-rate-api")
 @ApplicationScoped
-public interface ExchangeRateService {
+public class ExchangeRateService {
 
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/pair/{base}/{target}")
-    ExchangeRateResponseDTO getExchangeRate(@PathParam("base") String baseCurrency, @PathParam("target") String targetCurrency);
+    @Inject
+    @RestClient
+    ExchangeRateClient exchangeRateClient;
 
-    @GET
-    @Path("/pair/{base}/{target}/{amount}")
-    @Produces(MediaType.APPLICATION_JSON)
-    ExchangeRateResponseDTO convertAmount(@PathParam("base") String baseCurrency, @PathParam("target") String targetCurrency, @PathParam("amount") BigDecimal amount);
+    public ExchangeRateResponseDTO getExchangeRate(String baseCurrency, String targetCurrency) {
+        return exchangeRateClient.getExchangeRate(baseCurrency, targetCurrency);
+    }
+
+    public ExchangeRateResponseDTO convertAmount(String baseCurrency, String targetCurrency, BigDecimal amount) {
+        return exchangeRateClient.convertAmount(baseCurrency, targetCurrency, amount);
+    }
 }

@@ -23,10 +23,6 @@ public class AccountController {
     @Inject
     AccountService accountService;
 
-    @Inject
-    @RestClient
-    ExchangeRateService exchangeRateService;
-
     @GET
     @Path("/{accountNumber}/balance")
     @Produces(MediaType.APPLICATION_JSON)
