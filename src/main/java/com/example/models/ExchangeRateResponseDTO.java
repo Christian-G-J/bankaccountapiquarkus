@@ -2,9 +2,13 @@ package com.example.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 
+@Getter
+@Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ExchangeRateResponseDTO {
 
@@ -19,39 +23,4 @@ public class ExchangeRateResponseDTO {
 
     @JsonProperty("target_code")
     private String target;
-
-    public String getBase() {
-        return base;
-    }
-
-    public void setBase(String base) {
-        this.base = base;
-    }
-
-    public String getTarget() {
-        return target;
-    }
-
-    public void setTarget(String target) {
-        this.target = target;
-    }
-// Getters and Setters
-
-    public BigDecimal getConversionRate() {
-        return conversionRate;
-    }
-
-    // Used by Jackson
-    public void setConversionRate(BigDecimal conversionRate) {
-        this.conversionRate = conversionRate;
-    }
-
-    public BigDecimal getConversionResult() {
-        return conversionResult;
-    }
-
-    // Used by Jackson
-    public void setConversionResult(BigDecimal conversionResult) {
-        this.conversionResult = conversionResult;
-    }
 }
