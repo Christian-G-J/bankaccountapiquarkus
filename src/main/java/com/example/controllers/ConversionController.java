@@ -7,17 +7,14 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
 import java.util.Map;
 
 @Path("/convert")
 public class ConversionController {
 
     @Inject
-    @RestClient
     ExchangeRateService exchangeRateService;
 
     @GET
